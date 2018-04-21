@@ -1,18 +1,9 @@
 class Game < ApplicationRecord
-    # def initialize(attributes = {})
-    #     # Board configuration where e means empty, r means red, and b means black
-    #     # The first letter is the bottom left corner. The first six letters are
-    #     # the first column.  
-    #     @board = "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
-    #     @turn = "red"
-    #     @moves = 0
-    #     @state = "in progress"
-    # end
-    
+
     #this function places down the tile of whoever's turn it is
     def place(column)
         # making sure there is room in the column and that the game isn't over
-        if self.board[6*column+5] == "e" && self.state == "in progress"
+        if self.board[6*column+5] == "e" && self.state == "In progress"
             #adding the piece and updating attributes
             self.board[self.board[6*column..6*column+5].index("e")+6*column] = self.turn[0]
             self.turn == "red" ? self.turn = "black" : self.turn = "red"

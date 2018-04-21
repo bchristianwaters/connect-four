@@ -1,0 +1,37 @@
+// Place all the styles related to the games controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.game {
+    column-count: 7;
+    max-width: 700px;
+    margin: auto;
+    position: fixed;
+    left: 200px;
+    top: 20px;
+}
+.button_to input {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 19px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+.button_to input:hover {
+    background-color: green;
+}
+.button_to input.red {
+    background-color: red;
+}
+.button_to input.red:hover {
+    background-color: #8B0000; /* Dark Red */
+}
+.button_to input.black {
+    background-color: black;
+}
+.button_to input.black:hover {
+    background-color: #808080; /* Light Black */
+}
+
