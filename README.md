@@ -4,7 +4,7 @@ To work on this app start by forking, pulling down, or cloning it.
 Afterword, run "bundle install" and the "rails db:migrate".
 Then you can run the application and it should like the following:
 
-<%= image_tag("empty.png") %>
+![Board](/lib/assets/board.png?raw=true "Board")
 
 This is a connect four app. Currently, this app is best played on one computer.
 
