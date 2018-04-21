@@ -1,17 +1,25 @@
+<!-- Game information and new game button -->
 <h1><%= @game.state %></h1>
 <%= button_to 'New Game', { :action => "create", :controller => "games"} , :method=>:post %>
 <% if @game.turn == "red" && @game.state == "In progress" %>
     <h2 style="color:red;">Red's turn</h2>
 <% elsif @game.turn == "black" && @game.state == "In progress" %>
-<h1>Black's turn</h1>
+    <h1>Black's turn</h1>
 <% end %>
-</header>
+
+<!-- The connect four game -->
 <div class = "game">
     <% for i in 0..6 %>
+        
+        <!-- the buttons up top -->
         <% if @game.board[6*i+5] == "e" && @game.state == "In progress" %>
             <%= button_to 'Go here', { :action => "place", :controller => "games", :game => @game.id, :column => i }, class: @game.turn, :method=>:put %>
+        <% else %>
+            <%= button_to 'Unavailable', { :action => "place", :controller => "games", :game => @game.id, :column => i }, class: "unavailable", :method=>:put %>
         <% end %>
         <% for j in 0..5 %>
+        
+            <!-- the 42 spots that pieces can go -->
             <div class = "square">
                 <% if @game.board[6*i+(5-j)] == "e" %>
                     <%= image_tag("empty.png") %>

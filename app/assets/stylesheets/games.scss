@@ -1,6 +1,7 @@
 // Place all the styles related to the games controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+/* container for the connect four game */
 .game {
     column-count: 7;
     max-width: 700px;
@@ -9,6 +10,8 @@
     left: 200px;
     top: 20px;
 }
+
+/* Default button css */
 .button_to input {
     background-color: #4CAF50; /* Green */
     border: none;
@@ -19,6 +22,8 @@
     display: inline-block;
     font-size: 16px;
 }
+
+/* Different colors and hover colors for different buttons */
 .button_to input:hover {
     background-color: green;
 }
@@ -33,5 +38,11 @@
 }
 .button_to input.black:hover {
     background-color: #808080; /* Light Black */
+}
+.button_to input.unavailable {
+    background-color: white;
+}
+.button_to input.unavailable {
+    background-color: white;
 }
 
