@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :games, only: [:create, :show]
   put 'games/place'
-  root 'games#create'
+  root to: 'games#create'
 end
