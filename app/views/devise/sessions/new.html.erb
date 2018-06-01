@@ -1,8 +1,5 @@
 <link rel="stylesheet" type="text/css" href="accets/stylesheets/loginForm.css">
 <h2 class ="title">Sign In</h2>
-<div class="other-logins">
-  <%= button_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, class: "facebook" %>
-</div>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
   
