@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="accets/stylesheets/loginForm.css">
+<%= stylesheet_link_tag    "loginForm", :media => "all" %>
 <h2 class ="title">Sign In</h2>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>

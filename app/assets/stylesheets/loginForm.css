@@ -1,3 +1,6 @@
+h2 {
+  margin-top: 50px;
+}
 .input-field, .submit-button, .body, .header, .other-logins, .title {
   width: 100%;
   padding: 10px;
