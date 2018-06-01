@@ -1,0 +1,50 @@
+.input-field, .submit-button, .body, .header, .other-logins, .title {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+}
+.input-field input {
+  width: 50%;
+  max-width: 500px;
+  height: 30px;
+  padding-left: 5px;
+}
+.submit-button button {
+  width: 50%;
+  max-width: 500px;
+  height: 30px;
+}
+.other-login-path {
+  text-align: center;
+  margin: 10px;
+}
+.other-login-path p {
+  display: inline;
+}
+input[type="submit"] {
+  width: 50%;
+  max-width: 500px;
+  height: 50px;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 19px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+input[type="submit"]:hover {
+  background-color: green;
+}
+input.facebook {
+  background-color: blue;
+}
+input.facebook:hover {
+  background-color: navy;    
+}
+.remember_me {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+}

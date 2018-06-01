@@ -1,29 +1,27 @@
-<h2>Sign up</h2>
-<%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
+<link rel="stylesheet" type="text/css" href="accets/stylesheets/loginForm.css">
+<h2 class ="title">Sign Up</h2>
+<div class="other-logins">
+  <%= button_to "Sign up with Facebook", user_facebook_omniauth_authorize_path, class: "facebook" %>
+</div>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="input-field">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
+  <div class="input-field">
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.password_field :password, autocomplete: "off", placeholder: "Password" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  <div class="input-field">
+    <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Password Confirmation" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div class="submit-button">
+    <%= f.submit "Sign Up" %>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
