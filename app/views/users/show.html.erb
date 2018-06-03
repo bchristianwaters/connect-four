@@ -1,2 +1,8 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<%= stylesheet_link_tag    "userShow", :media => "all" %>
+<body>
+    <%= image_tag current_user.avatar_url(120) %>
+    <h1>Email: <%= @user.email %></h1>   
+    <h1>Name: <%= @user.first_name %> <%= @user.last_name %></h3>
+    <h1>Age: <%= @user.age %></h1>
+</body>
+
