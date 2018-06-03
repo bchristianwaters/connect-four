@@ -1,2 +1,26 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<%= stylesheet_link_tag    "userEdit", :media => "all" %>
+<h2>Edit Profile</h2>
+<%= form_for @user do |f| %>
+  <%= image_tag current_user.avatar_url(120) %>
+  <div class="gravatar">
+    <%= link_to "Edit your Gravatar", "https://en.gravatar.com/support/activating-your-account/" %>      
+  </div>
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name, autocomplete: "last_name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :age %><br />
+    <%= f.number_field :age, autocomplete: "age" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update" %>
+  </div>
+<% end %>
