@@ -7,6 +7,15 @@
 <% elsif @game.turn == "black" && @game.state == "In progress" %>
     <h2>Black's turn</h2>
 <% end %>
+<% if current_user %>
+<div class = "messageContainer">
+  <h2 class = "message-header">Message Board</h2>
+  <div class = "messages">
+    <%= render @game.messages %>    
+  </div>
+    <%= render 'messages/form', message: Message.new, game: @game %>
+</div>
+<% end %>
 
 <!-- The connect four game -->
 <div class = "game">

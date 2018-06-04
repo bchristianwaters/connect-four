@@ -1,0 +1,4 @@
+ <%= form_for [game, message] do |f| %>
+   <%= f.text_area :content, class: 'text_area', placeholder: "Enter a new message" %>
+   <%= f.submit "Send", class: 'messageSubmit' %>
+ <% end %>

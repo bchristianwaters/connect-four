@@ -48,4 +48,49 @@ h1 {
 .button_to input.unavailable {
     background-color: white;
 }
-
+.messageContainer {
+    width: 400px;
+    height: 400px;
+    margin: auto;
+    position: fixed;
+    left: 950px;
+    padding: 0px;
+    border: solid;
+    top: 70px;    
+}
+.messageSubmit {
+    width: 100%;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    padding: 15px 19px;
+    margin: 0px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+.messageSubmit:hover {
+    background-color: green;
+}
+.message-header {
+    text-align: center;
+    border-bottom: solid;
+    margin: 0;
+    padding: 20px;
+}
+.messages {
+    border-bottom: solid;
+    margin: 0;
+    padding: 10px;
+    height: 180px;
+    overflow: auto;
+    overflow-x: hidden;
+}
+.text_area {
+    resize: none;
+    height: 70px;
+    width: 99.5%;
+    margin: 0px;
+    padding: 0px;
+    border-bottom: white;
+}

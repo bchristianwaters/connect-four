@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
   
   def update
-    @user = User.find(params[:id])
+    @user = current_user
     @user.assign_attributes(user_params)
     
     if @user.save

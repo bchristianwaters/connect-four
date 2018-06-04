@@ -1,5 +1,5 @@
 class Game < ApplicationRecord
-
+  has_many :messages, dependent: :destroy
     #this function places down the tile of whoever's turn it is
     def place(column)
         # making sure there is room in the column and that the game isn't over
