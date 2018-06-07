@@ -15,7 +15,7 @@ h1 {
 }
 
 /* Default button css */
-.button_to input {
+.button_to input, .new_game_path {
     background-color: #4CAF50; /* Green */
     border: none;
     color: white;
@@ -27,7 +27,7 @@ h1 {
 }
 
 /* Different colors and hover colors for different buttons */
-.button_to input:hover {
+.button_to input:hover, .new_game_path:hover {
     background-color: green;
 }
 .button_to input.red {
@@ -93,4 +93,7 @@ h1 {
     margin: 0px;
     padding: 0px;
     border-bottom: white;
+}
+.input-field {
+    padding: 15px;
 }

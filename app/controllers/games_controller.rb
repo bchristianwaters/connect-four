@@ -1,8 +1,32 @@
 class GamesController < ApplicationController
   #creates a new game
+  def new
+     @game = Game.new
+     @users = User.all
+  end
+  
   def create
-    @game = Game.create(board: "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee", turn: "red", moves: 0, state: "In progress")
-    redirect_to @game
+    @game = Game.new
+    begin
+      p2 = params[:game][:p2]
+      if p2.include?("@")
+        @game.p2 = User.find_by(email: p2).id
+      elsif p2
+        @game.p2 = p2
+      end
+    rescue
+      @game.p2 = current_user.id
+    end
+    @game.board = "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+    @game.turn = "red"
+    @game.moves = 0
+    @game.state = "In progress"
+    @game.p1 = current_user.id
+    if @game.save
+      redirect_to @game
+    else
+      render :new
+    end 
   end
   
   #places a piece and updates the board
@@ -16,5 +40,10 @@ class GamesController < ApplicationController
   #displays the game
   def show
     @game = Game.find(params[:id])
+  end
+  
+  private 
+  def game_params
+    params.require(:game).permit(:p2)
   end
 end

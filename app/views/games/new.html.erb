@@ -1,0 +1,14 @@
+<%= stylesheet_link_tag    "newGame", :media => "all" %>
+<div class="gameForm">
+  <h1>Whom would you like to play?</h1>
+  <%= form_for @game do |f| %>
+    <h3>Player</h3>
+    <div class="input-field">
+      <%= f.text_field :p2, placeholder: "Enter Opponent Email or ID", class: 'form-control'%>
+      <%= f.submit "Create", class: 'newGame' %>
+    </div>
+  <% end %>
+  <div class="self">
+    <%= button_to 'Self', { :action => "create", :controller => "games"}, :method=>:post %>
+  </div>
+</div>

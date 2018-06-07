@@ -10,16 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180603235450) do
+ActiveRecord::Schema.define(version: 20180607023630) do
 
-  create_table "games", force: :cascade do |t|
-    t.string "board"
-    t.string "turn"
-    t.integer "moves"
-    t.string "state"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+# Could not dump table "games" because of following StandardError
+#   Unknown type '' for column 'p1'
 
   create_table "messages", force: :cascade do |t|
     t.string "content"
