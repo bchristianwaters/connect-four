@@ -33,7 +33,16 @@ class GamesController < ApplicationController
   def place
     @game = Game.find(params[:game])
     @column = params[:column]
+    @turn = @game.turn
+    @height = @game.height(@column.to_i)
+    @state = @game.state
     @game.place(@column.to_i)
+    ActionCable.server.broadcast 'games',
+        column: @column,
+        height: @height,
+        turn: @turn,
+        state: @state
+    # # head :ok
     redirect_to @game
   end
   

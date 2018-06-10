@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  # Serve websocket cable requests in-process
+  mount ActionCable.server => '/cable'
   devise_for :users
   resources :users, only: [:show, :edit, :update]
   resources :games, only: [:show, :new, :create] do

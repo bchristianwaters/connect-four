@@ -38,6 +38,7 @@
  gem 'devise', '~> 4.0'
  gem 'omniauth-facebook'
  gem 'omniauth-google-oauth2'
+ gem 'redis', '~> 3.0'
  
  group :development do
    gem 'listen', '~> 3.0.5'

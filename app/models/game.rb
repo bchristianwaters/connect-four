@@ -1,5 +1,10 @@
 class Game < ApplicationRecord
   has_many :messages, dependent: :destroy
+    #this function finds the current height - 1 of a column
+    def height(column)
+        return (self.board[6*column+5] == "e") ? self.board[6*column..6*column+5].index("e") : 6
+    end
+        
     #this function places down the tile of whoever's turn it is
     def place(column)
         # making sure there is room in the column and that the game isn't over

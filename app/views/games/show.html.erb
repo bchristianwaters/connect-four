@@ -22,7 +22,7 @@
     <% for i in 0..6 %>
         
         <!-- the buttons up top -->
-        <% if @game.board[6*i+5] == "e" && @game.state == "In progress" %>
+        <% if @game.board[6*i+5] == "e" && @game.state == "In progress" && (@game.turn == "black" ? current_user.id == @game.p2 : current_user.id == @game.p1) %>
             <%= button_to 'Go here', { :action => "place", :controller => "games", :game => @game.id, :column => i }, class: @game.turn, :method=>:put %>
         <% else %>
             <%= button_to 'Unavailable', { :action => "place", :controller => "games", :game => @game.id, :column => i }, class: "unavailable", :method=>:put %>
