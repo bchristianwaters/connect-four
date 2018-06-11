@@ -4,6 +4,10 @@ class MessagesController < ApplicationController
     message = @game.messages.new(message_params)
     message.user = current_user
     if message.save
+      ActionCable.server.broadcast 'games',
+        type: "message",
+        user: message.user.first_name + " " + message.user.last_name,
+        content: message.content
       redirect_to @game
     else
       redirect_to @game

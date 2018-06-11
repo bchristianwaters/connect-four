@@ -38,11 +38,7 @@ class GamesController < ApplicationController
     @state = @game.state
     @game.place(@column.to_i)
     ActionCable.server.broadcast 'games',
-        column: @column,
-        height: @height,
-        turn: @turn,
-        state: @state
-    # # head :ok
+      type: "game"
     redirect_to @game
   end
   
