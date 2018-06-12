@@ -18,8 +18,9 @@
   padding-left: 5px;
   display:inline;
   height: 44px;
+  margin-bottom: 35px;
 }
-.self input {
+.self input, .cpu input {
   width: 30%;
   max-width: 300px;
   height: 40px;
@@ -30,9 +31,10 @@
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin-top: 40px;
+  margin-top: 5px;
+  margin-bottom: 35px;
 } 
-.self input:hover {
+.self input:hover, .cpu input:hover {
   background-color: #808080;
 }
 h1 {

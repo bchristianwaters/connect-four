@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180607023630) do
+ActiveRecord::Schema.define(version: 20180612043441) do
 
 # Could not dump table "games" because of following StandardError
 #   Unknown type '' for column 'p1'

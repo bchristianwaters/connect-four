@@ -65,4 +65,51 @@ class Game < ApplicationRecord
         end
         return nil
     end
+    def easy
+        max_column = 0
+        max_value = 0
+        for i in 0..6
+            if self.board[6*i] == "e"
+                if priority(6*i)>max_value
+                    max_column = i
+                    max_value = priority(6*i)
+                end
+            else
+                for j in 1..5
+                    if self.board[6*i+j] == "e" && self.board[6*i+j-1] != "e"
+                        if priority(6*i+j)>max_value
+                            max_column = i
+                            max_value = priority(6*i+j)
+                        end
+                    end
+                end
+            end
+        end
+        if max_value<=0
+            possible = [];
+            for i in 0..6
+                x=4-((i-3).abs)
+                x.times do |j|
+                    possible.push(i) if self.board[6*i+5] == "e" 
+                end
+            end
+            place(possible.sample)
+        else
+            place(max_column)
+        end
+    end
+    def priority(number)
+        self.board[number] = "b"
+        if self.winner
+           self.board[number] = "e"
+           return 2
+        end
+        self.board[number] = "r"
+        if self.winner
+            self.board[number] = "e"
+            return 1
+        end
+        self.board[number] = "e"
+        return 0
+    end
 end

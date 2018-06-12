@@ -10,9 +10,10 @@ App.games = App.cable.subscriptions.create('GamesChannel', {
       var board = document.getElementById("messages");
       var message = document.createElement("div");
       message.appendChild(document.createTextNode(data.user + ": " + data.content));
-      board.appendChild(message);      
+      board.appendChild(message); 
     } else {
-      location.reload();
+      document.getElementsByClassName("audio")[data.height].play();
+      setTimeout(function(){ document.location.reload(); }, 1000);
     }
   }
 });

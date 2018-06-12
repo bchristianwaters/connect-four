@@ -22,6 +22,7 @@ class GamesController < ApplicationController
     @game.moves = 0
     @game.state = "In progress"
     @game.p1 = current_user.id
+    @game.game_type = params[:game_type]
     if @game.save
       redirect_to @game
     else
@@ -37,8 +38,12 @@ class GamesController < ApplicationController
     @height = @game.height(@column.to_i)
     @state = @game.state
     @game.place(@column.to_i)
+    if @game.game_type == "easy"
+      @game.easy()
+    end
     ActionCable.server.broadcast 'games',
-      type: "game"
+      type: "game",
+      height: @height
     redirect_to @game
   end
   
