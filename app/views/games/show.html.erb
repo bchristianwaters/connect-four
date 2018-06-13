@@ -1,5 +1,6 @@
 <%= stylesheet_link_tag    "games", :media => "all" %>
 <!-- Game information and new game button -->
+<input id="game_id" type="hidden" value="<%= @game.id %>">
 <h1><%= @game.state %></h1>
 <%= link_to 'New Game', new_game_path, { class: "new_game_path" } %>
 <% if @game.turn == "red" && @game.state == "In progress" %>

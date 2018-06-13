@@ -7,6 +7,7 @@ class MessagesController < ApplicationController
       ActionCable.server.broadcast 'games',
         type: "message",
         user: message.user.first_name + " " + message.user.last_name,
+        game_id: @game.id,
         content: message.content
       redirect_to @game
     else

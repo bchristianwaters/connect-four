@@ -43,6 +43,7 @@ class GamesController < ApplicationController
     end
     ActionCable.server.broadcast 'games',
       type: "game",
+      game_id: @game.id,
       height: @height
     redirect_to @game
   end
