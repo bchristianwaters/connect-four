@@ -20,7 +20,7 @@
   height: 44px;
   margin-bottom: 35px;
 }
-.self input, .cpu input {
+.self input {
   width: 30%;
   max-width: 300px;
   height: 40px;
@@ -29,11 +29,27 @@
   padding: 15px 19px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
+  display: inline-bloc;
   font-size: 16px;
-  margin-top: 5px;
+  margin-top: 50px;
   margin-bottom: 35px;
 } 
+.cpu input {
+  max-width: 300px;
+  height: 40px;
+  border: none;
+  color: black;
+  padding: 15px 19px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;;
+  font-size: 16px;
+  margin-left: 10px;
+  margin-right: 10px;
+} 
+.cpu form {
+  display: inline-block;
+}
 .self input:hover, .cpu input:hover {
   background-color: #808080;
 }

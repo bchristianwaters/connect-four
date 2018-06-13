@@ -40,6 +40,8 @@ class GamesController < ApplicationController
     @game.place(@column.to_i)
     if @game.game_type == "easy"
       @game.easy()
+    elsif @game.game_type == "medium"
+      @game.medium()
     end
     ActionCable.server.broadcast 'games',
       type: "game",

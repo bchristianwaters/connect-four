@@ -98,18 +98,75 @@ class Game < ApplicationRecord
             place(max_column)
         end
     end
+    def medium
+        max_column = 0
+        max_value = 0
+        for i in 0..6
+            x = 4-((i-3).abs)
+            x = priority2(i) if priority2(i) > x
+            if self.board[6*i] == "e"
+                x = priority(6*i) if priority(6*i) > x
+                x = priority3(6*i) if priority3(6*i) < 0
+                if x > max_value
+                    max_column = i
+                    max_value = x
+                end
+            else
+                for j in 1..5
+                    if self.board[6*i+j] == "e" && self.board[6*i+j-1] != "e"
+                        x = priority(6*i+j) if priority(6*i+j) > x
+                        x = priority3(6*i+j) if priority3(6*i+j) < 0
+                        if x > max_value
+                            max_column = i
+                            max_value = x
+                        end
+                    end
+                end
+            end
+        end
+        place(max_column)
+    end
     def priority(number)
         self.board[number] = "b"
         if self.winner
            self.board[number] = "e"
-           return 2
+           return 200
         end
         self.board[number] = "r"
         if self.winner
             self.board[number] = "e"
-            return 1
+            return 100
         end
         self.board[number] = "e"
+        return 0
+    end
+    def priority2(i)
+        if self.board[6*i] == "e"
+            #checking for tile to left
+            if i>1 && self.board[6*i-6] == "r" && i<6
+                #checking for tile to right
+                if i<5 && self.board[6*i+6] == "r" && self.board[6*i+1] == "e" && self.board[6*i-12] == "e"
+                    return 80
+                #checking for another tile to left    
+                elsif i>2 && self.board[6*i-12] == "r" && self.board[6*i-18] == "e"  && self.board[6*i+6] == "e"
+                    return 80
+                end
+            #checking for two tiles to right
+            elsif i<4 && i>0 && self.board[6*i+6] == "r" && self.board[6*i+12] == "r" && self.board[6*i+18] == "e" && self.board[6*i-6] == "e" 
+                return 80
+            end
+        end
+        return 0
+    end
+    def priority3(number)
+        unless number % 6 == 5
+            self.board[number+1] = "r"
+            if self.winner
+                self.board[number+1] = "e"
+                return -80
+            end 
+            self.board[number+1] = "e"
+        end
         return 0
     end
 end
