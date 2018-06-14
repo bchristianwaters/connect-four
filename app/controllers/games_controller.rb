@@ -42,6 +42,8 @@ class GamesController < ApplicationController
       @game.easy()
     elsif @game.game_type == "medium"
       @game.medium()
+    elsif @game.game_type == "difficult"
+      @game.difficult()
     end
     ActionCable.server.broadcast 'games',
       type: "game",

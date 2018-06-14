@@ -12,6 +12,7 @@
   <div class="cpu">
     <%= button_to 'Easy', { :action => "create", :controller => "games"}, :method=>:post, params: { game_type: "easy" } %>
     <%= button_to 'Medium', { :action => "create", :controller => "games"}, :method=>:post, params: { game_type: "medium" } %>
+    <%= button_to 'Difficult', { :action => "create", :controller => "games"}, :method=>:post, params: { game_type: "difficult" } %>
   </div>
   <div class="self">
     <%= button_to 'Self', { :action => "create", :controller => "games"}, :method=>:post, params: { game_type: "player" } %>
