@@ -34,22 +34,21 @@ class GamesController < ApplicationController
   def place
     @game = Game.find(params[:game])
     @column = params[:column]
-    @turn = @game.turn
     @height = @game.height(@column.to_i)
-    @state = @game.state
     @game.place(@column.to_i)
-    if @game.game_type == "easy"
+    @type = @game.game_type
+    if @type == "easy"
       @game.easy()
-    elsif @game.game_type == "medium"
+    elsif @type == "medium"
       @game.medium()
-    elsif @game.game_type == "difficult"
+    elsif @type == "difficult"
       @game.difficult()
     end
     ActionCable.server.broadcast 'games',
       type: "game",
       game_id: @game.id,
       height: @height
-    redirect_to game_path(@game.id, params: {height: @height})
+    redirect_to game_path(@game.id, params: {height: @height, type: @type})
   end
   
   #displays the game

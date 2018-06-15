@@ -4,9 +4,11 @@ function getUrlParam(name) {
 }
 window.onload = function(){
     var height = getUrlParam('height');
+    var type = getUrlParam('type');
     if (height > "") {
         document.getElementsByClassName("audio")[Number(height)].play();
-        Number(height)
-    } else {
-    }    
+        if (type == "medium" || type == "easy" || type == "difficult") {
+            document.getElementsByClassName("audio")[Number(height)+6].play();
+        }
+    }  
 }
