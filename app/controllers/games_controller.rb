@@ -49,7 +49,7 @@ class GamesController < ApplicationController
       type: "game",
       game_id: @game.id,
       height: @height
-    redirect_to @game
+    redirect_to game_path(@game.id, params: {height: @height})
   end
   
   #displays the game
