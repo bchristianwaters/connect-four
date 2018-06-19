@@ -12,8 +12,17 @@
 
 ActiveRecord::Schema.define(version: 20180612043441) do
 
-# Could not dump table "games" because of following StandardError
-#   Unknown type '' for column 'p1'
+  create_table "games", force: :cascade do |t|
+    t.string "board"
+    t.string "turn"
+    t.integer "moves"
+    t.integer "p1"
+    t.integer "p2"
+    t.string "state"
+    t.string "game_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "messages", force: :cascade do |t|
     t.string "content"
