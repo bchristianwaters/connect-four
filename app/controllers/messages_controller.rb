@@ -11,6 +11,7 @@ class MessagesController < ApplicationController
       @username += " " unless @username.length == 0
       @username += message.user.last_name
     end
+    @username = message.user.email if @username.length == 0
     if message.save
       ActionCable.server.broadcast 'games',
         type: "message",
