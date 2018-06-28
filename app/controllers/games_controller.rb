@@ -1,13 +1,12 @@
 class GamesController < ApplicationController
   #creates a new game
+  before_action :authenticate_user!
   def new
-    before_action :authenticate_user!
     @game = Game.new
     @users = User.all
   end
   
   def create
-    before_action :authenticate_user!
     @game = Game.new
     begin
       p2 = params[:game][:p2]
@@ -34,7 +33,6 @@ class GamesController < ApplicationController
   
   #places a piece and updates the board
   def place
-    before_action :authenticate_user!
     @game = Game.find(params[:game])
     @column = params[:column]
     @height = @game.height(@column.to_i)
@@ -56,7 +54,6 @@ class GamesController < ApplicationController
   
   #displays the game
   def show
-    before_action :authenticate_user!
     @game = Game.find(params[:id])
   end
   

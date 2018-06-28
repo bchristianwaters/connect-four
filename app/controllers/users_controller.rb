@@ -1,16 +1,14 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
   def show
-    before_action :authenticate_user!
     @user = User.find(params[:id])
   end
 
   def edit
-    before_action :authenticate_user!
     @user = User.find(params[:id])
   end
   
   def update
-    before_action :authenticate_user!
     @user = current_user
     @user.assign_attributes(user_params)
     
